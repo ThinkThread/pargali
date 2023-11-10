@@ -23,7 +23,6 @@ jobs:
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
         with:
           name: Release ${{ steps.package_version.outputs.VERSION }}
           tag_name: ${{ steps.package_version.outputs.VERSION }}
