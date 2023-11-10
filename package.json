@@ -1,6 +1,6 @@
 {
   "name": "envflex",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Enhanced environment variable loader for Node.js",
   "main": "index.js",
   "keywords": [
@@ -12,13 +12,18 @@
   "author": "Think Thread",
   "license": "MIT",
   "scripts": {
+    "build": "tsc",
     "test": "jest"
   },
   "dependencies": {
     "dotenv": "^16.3.1"
   },
   "devDependencies": {
-    "jest": "^29.7.0"
+    "@types/jest": "^29.5.8",
+    "@types/node": "^20.9.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.2.2"
   },
   "publishConfig": {
     "access": "public"

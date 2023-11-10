@@ -1,4 +1,4 @@
-const EnvFlex = require('../index');
+import EnvFlex from '../src/index';
 
 describe('Value', () => {
   beforeAll(() => {
