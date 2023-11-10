@@ -1,5 +1,5 @@
 {
-  "name": "@thinkthread/envflex",
+  "name": "envflex",
   "version": "1.0.0",
   "description": "Enhanced environment variable loader for Node.js",
   "main": "index.js",
