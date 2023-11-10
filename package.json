@@ -1,6 +1,6 @@
 {
-  "name": "envflex",
-  "version": "1.0.2",
+  "name": "@thinkthread/envflex",
+  "version": "1.0.0",
   "description": "Enhanced environment variable loader for Node.js",
   "main": "index.js",
   "keywords": [
@@ -9,7 +9,7 @@
     "dotenv",
     "nodejs"
   ],
-  "author": "Harun Sokullu",
+  "author": "Think Thread",
   "license": "MIT",
   "scripts": {
     "test": "jest"
@@ -19,5 +19,8 @@
   },
   "devDependencies": {
     "jest": "^29.7.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
