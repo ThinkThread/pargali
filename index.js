@@ -2,44 +2,62 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 class EnvFlex {
-  // Retrieve an environment variable as a string with an optional default value
-  static getString(key, defaultValue = '') {
-    return process.env[key] || defaultValue;
+  static _castToString(value) {
+    return String(value).trim();
   }
 
-  // Retrieve an environment variable as a number with an optional default value
-  static getNumber(key, defaultValue = 0) {
-    const value = process.env[key];
-    if (value === undefined) {
-      return defaultValue;
-    }
-
-    const number = Number(value);
+  static _castToNumber(value) {
+    const number = Number(value.trim());
     if (isNaN(number)) {
-      throw new Error(`EnvFlex: Environment variable "${key}" is not a valid number.`);
+      throw new Error(`EnvFlex: Value "${value}" is not a valid number.`);
     }
-
     return number;
   }
 
-  // Retrieve an environment variable as a boolean
+  static _castToBoolean(value) {
+    return ['true', '1', 'yes'].includes(value.trim().toLowerCase());
+  }
+
+  static getString(key, defaultValue = '') {
+    const value = process.env[key];
+    return value === undefined ? defaultValue : EnvFlex._castToString(value);
+  }
+
+  static getNumber(key, defaultValue = 0) {
+    const value = process.env[key];
+    return value === undefined ? defaultValue : EnvFlex._castToNumber(value);
+  }
+
   static getBoolean(key, defaultValue = false) {
+    const value = process.env[key];
+    return value === undefined ? defaultValue : EnvFlex._castToBoolean(value);
+  }
+
+  static getStringArray(key, defaultValue = [], delimiter = ',') {
     const value = process.env[key];
     if (value === undefined) {
       return defaultValue;
     }
 
-    return ['true', '1', 'yes'].includes(value.toLowerCase());
+    return value.split(delimiter).map(EnvFlex._castToString);
   }
 
-  // Require that an environment variable is set; throw an error if it's not
-  static require(key) {
+  static getNumberArray(key, defaultValue = [], delimiter = ',') {
     const value = process.env[key];
     if (value === undefined) {
-      throw new Error(`EnvFlex: Required environment variable "${key}" is not set.`);
+      return defaultValue;
     }
 
-    return value;
+    return value.split(delimiter).map(EnvFlex._castToNumber);
+  }
+
+  static getBooleanArray(key, defaultValue = [], delimiter = ',') {
+    const value = process.env[key];
+    if (value === undefined) {
+      return defaultValue;
+    }
+
+    return value.split(delimiter).map(EnvFlex._castToBoolean);
   }
 }
 
