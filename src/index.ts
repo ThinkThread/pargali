@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-export default class EnvFlex {
+export default class Pargali {
   static _castToString(value: string) {
     return String(value).trim();
   }
@@ -9,7 +9,7 @@ export default class EnvFlex {
   static _castToNumber(value: string) {
     const number = Number(value.trim());
     if (isNaN(number)) {
-      throw new Error(`EnvFlex: Value "${value}" is not a valid number.`);
+      throw new Error(`Pargali: Value "${value}" is not a valid number.`);
     }
     return number;
   }
@@ -20,17 +20,17 @@ export default class EnvFlex {
 
   static getString(key: string, defaultValue = "") {
     const value = process.env[key];
-    return value === undefined ? defaultValue : EnvFlex._castToString(value);
+    return value === undefined ? defaultValue : Pargali._castToString(value);
   }
 
   static getNumber(key: string, defaultValue = 0) {
     const value = process.env[key];
-    return value === undefined ? defaultValue : EnvFlex._castToNumber(value);
+    return value === undefined ? defaultValue : Pargali._castToNumber(value);
   }
 
   static getBoolean(key: string, defaultValue = false) {
     const value = process.env[key];
-    return value === undefined ? defaultValue : EnvFlex._castToBoolean(value);
+    return value === undefined ? defaultValue : Pargali._castToBoolean(value);
   }
 
   static getStringArray(key: string, defaultValue = [], delimiter = ",") {
@@ -39,7 +39,7 @@ export default class EnvFlex {
       return defaultValue;
     }
 
-    return value.split(delimiter).map(EnvFlex._castToString);
+    return value.split(delimiter).map(Pargali._castToString);
   }
 
   static getNumberArray(key: string, defaultValue = [], delimiter = ",") {
@@ -48,7 +48,7 @@ export default class EnvFlex {
       return defaultValue;
     }
 
-    return value.split(delimiter).map(EnvFlex._castToNumber);
+    return value.split(delimiter).map(Pargali._castToNumber);
   }
 
   static getBooleanArray(key: string, defaultValue = [], delimiter = ",") {
@@ -57,14 +57,14 @@ export default class EnvFlex {
       return defaultValue;
     }
 
-    return value.split(delimiter).map(EnvFlex._castToBoolean);
+    return value.split(delimiter).map(Pargali._castToBoolean);
   }
 
   static require(key: string) {
     const value = process.env[key];
     if (value === undefined) {
       throw new Error(
-        `EnvFlex: Required environment variable "${key}" is not set.`
+        `Pargali: Required environment variable "${key}" is not set.`
       );
     }
 

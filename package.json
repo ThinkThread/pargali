@@ -1,5 +1,5 @@
 {
-  "name": "envflex",
+  "name": "pargali",
   "version": "1.0.2",
   "description": "Enhanced environment variable loader for Node.js",
   "main": "index.js",
