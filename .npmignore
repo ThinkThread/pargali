@@ -1,0 +1,6 @@
+.github
+images
+coverage
+test
+.eslintrc.cjs
+sonar-project.properties
