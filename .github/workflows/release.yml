@@ -39,4 +39,4 @@ jobs:
           tag_name: ${{ steps.package_version.outputs.VERSION }}
           draft: false
           prerelease: false
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.ORG_GITHUB_TOKEN }}
