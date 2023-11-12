@@ -1,6 +1,6 @@
 {
   "name": "pargali",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Enhanced environment variable loader for Node.js",
   "main": "index.js",
   "keywords": [

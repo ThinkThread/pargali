@@ -33,7 +33,7 @@ export default class Pargali {
     return value === undefined ? defaultValue : Pargali._castToBoolean(value);
   }
 
-  static getStringArray(key: string, defaultValue = [], delimiter = ",") {
+  static getStringArray(key: string, defaultValue: string[] = [], delimiter = ",") {
     const value = process.env[key];
     if (value === undefined) {
       return defaultValue;
@@ -42,7 +42,7 @@ export default class Pargali {
     return value.split(delimiter).map(Pargali._castToString);
   }
 
-  static getNumberArray(key: string, defaultValue = [], delimiter = ",") {
+  static getNumberArray(key: string, defaultValue: number[] = [], delimiter = ",") {
     const value = process.env[key];
     if (value === undefined) {
       return defaultValue;
@@ -51,7 +51,7 @@ export default class Pargali {
     return value.split(delimiter).map(Pargali._castToNumber);
   }
 
-  static getBooleanArray(key: string, defaultValue = [], delimiter = ",") {
+  static getBooleanArray(key: string, defaultValue: boolean[] = [], delimiter = ",") {
     const value = process.env[key];
     if (value === undefined) {
       return defaultValue;
