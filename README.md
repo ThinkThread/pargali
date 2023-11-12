@@ -30,7 +30,7 @@ npm install pargali
 To use `Pargali`, require it at the beginning of your application. This ensures all environment variables are loaded and available:
 
 ```javascript
-const Pargali = require('pargali');
+const Pargali = require('pargali').default;
 ```
 
 ## Accessing Environment Variables
