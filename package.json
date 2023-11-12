@@ -13,7 +13,8 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "dotenv": "^16.3.1"
@@ -27,5 +28,25 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThinkThread/pargali.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ThinkThread/pargali/issues"
+  },
+  "homepage": "https://github.com/ThinkThread/pargali#readme",
+  "contributors": [
+    {
+      "name": "Muhtalip Dede",
+      "github": "https://github.com/muhtalipdede",
+      "twitter": "https://twitter.com/MuhtalipDede"
+    },
+    {
+      "name": "Harun Sokullu",
+      "github": "https://github.com/suphero",
+      "twitter": "https://twitter.com/suphero"
+    }
+  ]
 }
